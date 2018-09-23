@@ -71,10 +71,16 @@ setuptools.setup(
 # Upload to PyPI. Get the user and password from the environment.
 # ===================================================================================================
 
-repo_user = os.environ["REPO_USER"]
-repo_pass = os.environ["REPO_PASS"]
+key_repo_user = "REPO_USER"
+key_repo_pass = "REPO_PASS"
 
-with open("upload_to_pypi.sh", 'w') as f:
-    f.write('#!/usr/bin/env bash\n')
-    f.write('pip install twine\n')
-    f.write('twine upload -u {} -p {} dist/*\n'.format(repo_user, repo_pass))
+if key_repo_user in os.environ and key_repo_pass in os.environ:
+    repo_user = os.environ[key_repo_user]
+    repo_pass = os.environ[key_repo_pass]
+
+    with open("upload_to_pypi.sh", 'w') as f:
+        f.write('#!/usr/bin/env bash\n')
+        f.write('pip install twine\n')
+        f.write('twine upload -u {} -p {} dist/*\n'.format(repo_user, repo_pass))
+else:
+    raise Exception(f"Environment variables for uploading to PyPI not found: {key_repo_user} and {key_repo_pass}.")
