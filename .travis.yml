@@ -3,6 +3,7 @@ python:
       - "3.6"
 
 install:
+  - pip install wheel
   - pip install codecov
   - pip install coverage
   - pip install pytest
@@ -13,5 +14,5 @@ script:
 
 after_success:
   - codecov
-  - python setup.py sdist
+  - python setup.py sdist bdist_wheel
   - bash ./upload_to_pypi.sh
