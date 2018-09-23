@@ -49,7 +49,7 @@ def copy_version_to_package(path):
 
 copy_version_to_package(PACKAGE_NAME)
 
-with open("README.md", "r") as f:
+with open("long_description.txt", "r") as f:
     long_description = f.read()
 
 setuptools.setup(
