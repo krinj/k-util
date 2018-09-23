@@ -49,11 +49,15 @@ def copy_version_to_package(path):
 
 copy_version_to_package(PACKAGE_NAME)
 
+with open("README.md", "r") as f:
+    long_description = f.read()
+
 setuptools.setup(
     author=AUTHOR,
     author_email=EMAIL,
     name=PACKAGE_NAME,
     description=DESCRIPTION,
+    long_description=long_description,
     version=VERSION,
     url=REPO,
     packages=find_packages_under(PACKAGE_NAME),
@@ -73,5 +77,4 @@ repo_pass = os.environ["REPO_PASS"]
 with open("upload_to_pypi.sh", 'w') as f:
     f.write('#!/usr/bin/env bash\n')
     f.write('pip install twine\n')
-    f.write('twine upload '
-            '-u {} -p {} dist/*\n'.format(repo_user, repo_pass))
+    f.write('twine upload -u {} -p {} dist/*\n'.format(repo_user, repo_pass))

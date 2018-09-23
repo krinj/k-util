@@ -1,2 +1,2 @@
 include version
-recursive-include *.tff
+include README.md
