@@ -1,5 +1,5 @@
 # k-util
-[![Build Status](https://travis-ci.org/krinj/k-util.svg?branch=master)](https://travis-ci.org/krinj/k-util) [![codecov](https://codecov.io/gh/krinj/k-util/branch/master/graph/badge.svg)](https://codecov.io/gh/krinj/k-util) ![Version](https://img.shields.io/badge/version-0.1.8-333333.svg)
+[![Build Status](https://travis-ci.org/krinj/k-util.svg?branch=master)](https://travis-ci.org/krinj/k-util) [![codecov](https://codecov.io/gh/krinj/k-util/branch/master/graph/badge.svg)](https://codecov.io/gh/krinj/k-util) ![Version](https://img.shields.io/badge/version-0.1.9-333333.svg)
 
 The tools package contains some lightweight utility script to help other modules down the line with more complex logic.
 
