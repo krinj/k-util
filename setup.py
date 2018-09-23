@@ -73,5 +73,5 @@ repo_pass = os.environ["REPO_PASS"]
 with open("upload_to_pypi.sh", 'w') as f:
     f.write('#!/usr/bin/env bash\n')
     f.write('pip install twine\n')
-    f.write('twine upload -r pypi --repository-url https://test.pypi.org '
+    f.write('twine upload -r pypi --repository-url https://test.pypi.org/legacy/ '
             '-u {} -p {} dist/{}-{}.tar.gz\n'.format(repo_user, repo_pass, PACKAGE_NAME, VERSION))
