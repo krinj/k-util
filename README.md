@@ -24,7 +24,7 @@ Here are the method signatures.
 ```python
 # Linear interpolation between two values.
 def interpolate(f1: float, f2: float, factor: float) -> float
-	pass
+    pass
 
 # Linear interpolation between two colors.
 def interpolate_color(c1, c2, factor: float) -> list:
