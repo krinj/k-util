@@ -1,5 +1,5 @@
 # k-util
-[![Build Status](https://travis-ci.org/krinj/k-util.svg?branch=master)](https://travis-ci.org/krinj/k-util) [![codecov](https://codecov.io/gh/krinj/k-util/branch/master/graph/badge.svg)](https://codecov.io/gh/krinj/k-util) ![Version](https://img.shields.io/badge/version-0.1.10-333333.svg)
+[![Build Status](https://travis-ci.org/krinj/k-util.svg?branch=master)](https://travis-ci.org/krinj/k-util) [![codecov](https://codecov.io/gh/krinj/k-util/branch/master/graph/badge.svg)](https://codecov.io/gh/krinj/k-util) ![Version](https://img.shields.io/badge/version-0.1.11-333333.svg)
 
 Some of the most common, general purpose utility scripts that I use across my Python AI and CV projects.
 
@@ -23,7 +23,7 @@ Here are the method signatures.
 
 ```python
 # Linear interpolation between two values.
-def interpolate(f1: float, f2: float, factor: float) -> float
+def interpolate(f1: float, f2: float, factor: float) -> float:
     pass
 
 # Linear interpolation between two colors.
