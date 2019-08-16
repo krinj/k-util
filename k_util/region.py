@@ -147,6 +147,39 @@ class Region:
         self.width = int(self.width * scale_value)
         self.height = int(self.height * scale_value)
 
+    def clamp(self, w, h):
+        """ Clamp the region to a frame's width and height. Region is modified in-place. """
+        r = self
+        r.left, r.right, r.top, r.bottom = self._clamp_helper(r.left, r.right, r. top, r.bottom, w)
+        r.top, r.bottom, r.left, r.right = self._clamp_helper(r.top, r.bottom, r.left, r.right, h)
+
+    def _clamp_helper(self, x, y, n, m, size):
+        """ Abstract clamping helper to return the modified smaller (x) and larger (y) values. """
+        if x < 0:
+            x, y = self._snap(x, y, 0)
+            if y > size:
+                y, n, m = self._shrink(y, n, m, size)
+        elif y > size:
+            y, x = self._snap(y, x, size)
+            if x < 0:
+                x, n, m = self._shrink(x, n, m, 0)
+        return x, y, n, m
+
+    @staticmethod
+    def _snap(a, b, edge):
+        delta = edge - a
+        a = edge
+        b += delta
+        return a, b
+
+    @staticmethod
+    def _shrink(a, n, m, edge):
+        delta = abs(edge - a)
+        a = edge
+        n += delta // 2
+        m -= delta // 2
+        return a, n, m
+
     # ======================================================================================================================
     # Property setters for our attributes.
     # ======================================================================================================================

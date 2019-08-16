@@ -206,4 +206,17 @@ class TestRegion(TestCase):
         self.assertEqual(1000, r.left)
         self.assertEqual(2000, r.right)
 
+    def test_region_clamp(self):
+        r1 = Region(-100, 200, -20, 120)
+
+        r1.expand_to_ratio()
+        r1.scale(2.5)
+        r1.clamp(800, 600)
+
+        print(r1.left, r1.right, r1.top, r1.bottom)
+
+        self.assertGreaterEqual(r1.left, 0)
+        self.assertGreaterEqual(r1.right, 0)
+        self.assertEqual(r1.width, r1.height)
+
 
